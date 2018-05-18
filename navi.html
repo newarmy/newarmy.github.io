@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<style>
 	  .box {border:1px solid #000;margin:10px; padding:20px;}
+	  ul{display:none;}
+	  h3{cursor:pointer;}
 	</style>
 </head>
 <body>
@@ -35,6 +37,15 @@
 	
 	 </ul>
 </div>
+<div class="box">
+     <h3>Linux</h3>
+	 <ul>
+	   <li>
+		  <a href="http://man.linuxde.net/" target="_blank">linux 命令大全</a>
+	   </li>
+	 </ul>
+</div>
+
 <div class="box">
      <h3>ES6</h3>
 	 <ul>
@@ -154,6 +165,23 @@
 	   
 	 </ul>
 </div>
-
+<script>
+  let preUl = null;
+  var bodyDom = document.querySelector('body');
+  
+	bodyDom.addEventListener('click', function (e) {
+	    let tar = e.target;
+	   if(tar.tagName.toLowerCase() !== 'h3'){
+			return;
+	   }
+	   let parentDom = tar.parentNode;
+	   let curLi = parentDom.querySelector('ul');
+		if(preUl) {
+			preUl.style.display = "none";
+		}
+		curLi.style.display = "block";
+		preUl = curLi;
+	})
+</script>
 </body>
 </html>
